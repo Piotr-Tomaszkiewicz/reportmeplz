@@ -12,20 +12,23 @@
         <router-link to="/wszystkie-zgloszenia" class="nav-item">
           <span class="icon">🌍</span> Wszystkie zgłoszenia
         </router-link>
-        <div @click="$emit('open-report')" class="nav-item btn-report" style="cursor: pointer;">
+        <button type="button" @click="$emit('open-report')" class="nav-item btn-report">
           <span class="icon">➕</span> Zgłoś
-        </div>
+        </button>
       </div>
     </div>
 
     <div class="sidebar-footer">
-      <router-link to="/login" class="nav-item login-link">
+      <button type="button" @click="$emit('open-login')" class="nav-item login-link">
         <span class="icon">👤</span> Zaloguj
-      </router-link>
+      </button>
     </div>
   </nav>
 </template>
-
+<script setup>
+// Bardzo ważne: deklarujemy jakie zdarzenia ten komponent wysyła w górę
+defineEmits(['open-report', 'open-login'])
+</script>
 <style scoped>
 .sidebar {
   width: 240px; /* Zmniejszona szerokość */
@@ -111,5 +114,35 @@
 
 .icon {
   margin-right: 12px;
+}
+.nav-item {
+  width: 100%;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #f3f4f6;
+  color: #2563eb;
+}
+
+.btn-report {
+  background-color: #2563eb !important;
+  color: white !important;
+  margin-top: 1rem;
+}
+
+.login-link {
+  color: #6b7280;
 }
 </style>

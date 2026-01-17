@@ -3,18 +3,34 @@ import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import ReportModal from './components/ReportModal.vue'
+import AuthModal from './components/AuthModal.vue'
 
-const isModalOpen = ref(false)
+const activeModal = ref(null)
+
+const closeModal = () => {
+  activeModal.value = null
+}
 
 </script>
 
 <template>
   <div class="app-layout">
-    <Navbar @open-report="isModalOpen = true" />
+    <Navbar 
+      @open-report="activeModal = 'report'" 
+      @open-login="activeModal = 'login'" 
+    />
     <main class="main-content">
       <RouterView />
     </main>
-    <ReportModal v-if="isModalOpen" @close="isModalOpen = false" />
+    <ReportModal 
+      v-if="activeModal === 'report'" 
+      @close="closeModal" 
+    />
+
+    <AuthModal 
+      v-if="activeModal === 'login'" 
+      @close="closeModal" 
+    />
   </div>
 </template>
 
