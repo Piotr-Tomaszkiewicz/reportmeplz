@@ -1,14 +1,20 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+import ReportModal from './components/ReportModal.vue'
+
+const isModalOpen = ref(false)
+
 </script>
 
 <template>
   <div class="app-layout">
-    <Navbar />
+    <Navbar @open-report="isModalOpen = true" />
     <main class="main-content">
       <RouterView />
     </main>
+    <ReportModal v-if="isModalOpen" @close="isModalOpen = false" />
   </div>
 </template>
 

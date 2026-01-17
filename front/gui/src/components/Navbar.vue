@@ -12,9 +12,9 @@
         <router-link to="/wszystkie-zgloszenia" class="nav-item">
           <span class="icon">🌍</span> Wszystkie zgłoszenia
         </router-link>
-        <router-link to="/zglos" class="nav-item btn-report">
+        <div @click="$emit('open-report')" class="nav-item btn-report" style="cursor: pointer;">
           <span class="icon">➕</span> Zgłoś
-        </router-link>
+        </div>
       </div>
     </div>
 
