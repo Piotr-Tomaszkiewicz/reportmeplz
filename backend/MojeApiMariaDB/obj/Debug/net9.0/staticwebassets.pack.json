@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png",
+      "PackagePath": "staticwebassets/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png"
+    },
+    {
+      "Id": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png",
+      "PackagePath": "staticwebassets/uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png"
+    },
+    {
+      "Id": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF",
+      "PackagePath": "staticwebassets/uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.MojeApiMariaDB.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.MojeApiMariaDB.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.MojeApiMariaDB.props",
+      "PackagePath": "build\\MojeApiMariaDB.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.MojeApiMariaDB.props",
+      "PackagePath": "buildMultiTargeting\\MojeApiMariaDB.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.MojeApiMariaDB.props",
+      "PackagePath": "buildTransitive\\MojeApiMariaDB.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

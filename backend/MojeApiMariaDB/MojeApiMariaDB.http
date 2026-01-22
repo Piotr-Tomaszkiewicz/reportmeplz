@@ -1,0 +1,6 @@
+@MojeApiMariaDB_HostAddress = http://localhost:5016
+
+GET {{MojeApiMariaDB_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

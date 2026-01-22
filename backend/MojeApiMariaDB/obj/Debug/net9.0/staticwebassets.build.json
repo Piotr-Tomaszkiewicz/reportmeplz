@@ -1,0 +1,331 @@
+{
+  "Version": 1,
+  "Hash": "QnNeR0kt+UchEdxe/QoEkHH8aAecIcpMeHF+EV7F5xw=",
+  "Source": "MojeApiMariaDB",
+  "BasePath": "_content/MojeApiMariaDB",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MojeApiMariaDB/wwwroot",
+      "Source": "MojeApiMariaDB",
+      "ContentRoot": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/",
+      "BasePath": "_content/MojeApiMariaDB",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png",
+      "SourceId": "MojeApiMariaDB",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/",
+      "BasePath": "_content/MojeApiMariaDB",
+      "RelativePath": "uploads/17dc0f34-ec46-4470-8629-bde931062b42#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fooyjdio81",
+      "Integrity": "keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png"
+    },
+    {
+      "Identity": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png",
+      "SourceId": "MojeApiMariaDB",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/",
+      "BasePath": "_content/MojeApiMariaDB",
+      "RelativePath": "uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fooyjdio81",
+      "Integrity": "keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png"
+    },
+    {
+      "Identity": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF",
+      "SourceId": "MojeApiMariaDB",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/",
+      "BasePath": "_content/MojeApiMariaDB",
+      "RelativePath": "uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7#[.{fingerprint}]?.GIF",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vkrhtxdxok",
+      "Integrity": "3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/17dc0f34-ec46-4470-8629-bde931062b42.fooyjdio81.png",
+      "AssetFile": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3781956"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 Jan 2026 19:18:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fooyjdio81"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/17dc0f34-ec46-4470-8629-bde931062b42.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/17dc0f34-ec46-4470-8629-bde931062b42.png",
+      "AssetFile": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3781956"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 Jan 2026 19:18:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.fooyjdio81.png",
+      "AssetFile": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3781956"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 Jan 2026 18:11:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fooyjdio81"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png",
+      "AssetFile": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/22cf0a33-28e5-44fb-a20a-18bd5ccda390.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3781956"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 Jan 2026 18:11:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-keekDptKACfiprJkmqnVUZDF3bNfJiaJQNXqh67iBtM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF",
+      "AssetFile": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125508"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/gif"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 Jan 2026 19:15:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.vkrhtxdxok.GIF",
+      "AssetFile": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "125508"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/gif"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 Jan 2026 19:15:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vkrhtxdxok"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/5f6b2c94-12e3-41f4-94a4-feb572154db7.GIF"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0="
+        }
+      ]
+    }
+  ]
+}

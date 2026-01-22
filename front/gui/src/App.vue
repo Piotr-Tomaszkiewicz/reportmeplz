@@ -5,23 +5,39 @@ import Navbar from './components/Navbar.vue'
 import ReportModal from './components/ReportModal.vue'
 import AuthModal from './components/AuthModal.vue'
 
+// null | 'report' | 'login'
 const activeModal = ref(null)
+
+const handleOpenReport = () => {
+  const token = localStorage.getItem('token')
+  
+  if (token) {
+    // Jeśli zalogowany - otwórz formularz zgłoszenia
+    activeModal.value = 'report'
+  } else {
+    // Jeśli nie - pokaż komunikat i otwórz modal logowania
+    alert("Zaloguj się lub stwórz konto, aby móc wysłać zgłoszenie.")
+    activeModal.value = 'login'
+  }
+}
 
 const closeModal = () => {
   activeModal.value = null
 }
-
 </script>
 
 <template>
   <div class="app-layout">
     <Navbar 
-      @open-report="activeModal = 'report'" 
+      @open-report="handleOpenReport" 
       @open-login="activeModal = 'login'" 
     />
+    
     <main class="main-content">
-      <RouterView />
+      <router-view @open-report="handleOpenReport" />
     </main>
+
+    <!-- Modale renderowane warunkowo -->
     <ReportModal 
       v-if="activeModal === 'report'" 
       @close="closeModal" 
@@ -35,29 +51,19 @@ const closeModal = () => {
 </template>
 
 <style>
-/* TWARDY RESET */
-*, *::before, *::after {
-  box-sizing: border-box; /* Zapobiega "puchnięciu" elementów przez padding */
-  margin: 0;
-  padding: 0;
-}
+/* Reset i Style Globalne */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden; /* Blokuje przewijanie na boki */
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
   background-color: #f9fafb;
+  font-family: 'Inter', sans-serif;
 }
 
-/* To jest kluczowe - Vue domyślnie tu dodaje padding i max-width */
 #app {
   width: 100% !important;
   max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important; /* Wymuszenie braku grida z domyślnych styli */
 }
 
 .app-layout {
@@ -67,8 +73,9 @@ html, body {
 }
 
 .main-content {
-  flex: 1; /* Zajmuje całą resztę szerokości */
+  flex: 1;
   padding: 40px;
   background-color: #f9fafb;
+  min-height: 100vh;
 }
 </style>
