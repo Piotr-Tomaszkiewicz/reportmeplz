@@ -15,13 +15,13 @@
           <input v-model="form.title" type="text" placeholder="Np. Uszkodzona klamka..." required />
         </div>
 
-        <!-- Priorytet -->
+        <!-- Priorytet (Z EMBEDOWANYMI EMOTKAMI) -->
         <div class="form-group">
           <label>Priorytet</label>
           <select v-model.number="form.priority" required>
-            <option :value="1">Zwykły (1)</option>
-            <option :value="2">Wysoki (2)</option>
-            <option :value="3">Krytyczny (3)</option>
+            <option :value="1">🟢 Zwykły (1)</option>
+            <option :value="2">⚠️ Wysoki (2)</option>
+            <option :value="3">🔥 Krytyczny (3)</option>
           </select>
         </div>
 
@@ -108,6 +108,7 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
+/* Reszta stylów bez zmian */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: flex; justify-content: center; align-items: center; z-index: 10000; }
 .modal-container { background: white; width: 95%; max-width: 500px; padding: 2rem; border-radius: 1rem; position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
 .close-x { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #9ca3af; }

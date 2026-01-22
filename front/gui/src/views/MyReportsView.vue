@@ -57,7 +57,9 @@
         <!-- Stopka: Priorytet -->
         <div class="report-footer">
           <div class="priority-info">
-            <span class="dot" :class="'prio-dot-' + report.priority"></span>
+            <span class="icon-prio" :class="'prio-dot-' + report.priority">
+              {{ getPriorityIcon(report.priority) }}
+            </span>
             <span class="prio-text">{{ getPriorityName(report.priority) }}</span>
           </div>
         </div>
@@ -95,7 +97,6 @@ onMounted(async () => {
 
 // === LOGIKA POBIERANIA ===
 
-// Przekazujemy ID zgłoszenia i OczekiwanaNazwaPliku do serwisu
 const downloadAttachment = async (id, fileName) => {
   try {
     document.body.style.cursor = 'wait'
@@ -133,6 +134,17 @@ const getAssigneeDisplay = (report) => {
     return `Ty (Przypisany)`
   }
   return nick
+}
+
+// === POMOCNICZE FUNKCJE ===
+
+const getPriorityIcon = (p) => {
+    switch(p) {
+        case 3: return '🔥'; // Krytyczny
+        case 2: return '⚠️'; // Wysoki
+        case 1: return '🟢'; // Zwykły
+        default: return '⚪';
+    }
 }
 
 const getPriorityName = (p) => {
@@ -185,10 +197,7 @@ const truncateText = (text, limit) => {
 .person-name.is-me { color: #2563eb; font-weight: 800; }
 .report-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 0.5rem; border-top: 1px solid #f3f4f6; }
 .priority-info { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.prio-dot-1 { background: #10b981; }
-.prio-dot-2 { background: #f59e0b; }
-.prio-dot-3 { background: #ef4444; }
+.icon-prio { font-size: 1.2em; line-height: 1; margin-bottom: -2px; }
 .prio-text { font-size: 0.85rem; font-weight: 600; color: #4b5563; }
 .attachment-section { margin-top: 12px; border-top: 1px dashed #e5e7eb; padding-top: 8px; }
 .download-btn { background: none; border: none; color: #2563eb; font-weight: 600; cursor: pointer; padding: 0; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 5px; }
