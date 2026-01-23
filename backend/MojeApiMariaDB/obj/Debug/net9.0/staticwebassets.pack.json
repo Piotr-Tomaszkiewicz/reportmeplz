@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF",
+      "PackagePath": "staticwebassets/uploads/12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF"
+    },
+    {
+      "Id": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg",
+      "PackagePath": "staticwebassets/uploads/15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg"
+    },
+    {
       "Id": "/home/piotr/reportmeplz/backend/MojeApiMariaDB/wwwroot/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png",
       "PackagePath": "staticwebassets/uploads/17dc0f34-ec46-4470-8629-bde931062b42.png"
     },

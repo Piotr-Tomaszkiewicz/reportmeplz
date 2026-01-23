@@ -10,7 +10,8 @@ public class AppDbContext : DbContext
     public DbSet<Location> Locations { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
-    public DbSet<Report> Reports { get; set; } // Nowa tabela
+    public DbSet<Report> Reports { get; set; }
+    public DbSet<Comment> Comments { get; set; } // NOWA TABELA
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -24,7 +25,7 @@ public class AppDbContext : DbContext
             new Role { Id = 4, Name = "admin" }
         );
 
-        // Konfiguracja relacji dla Zgłoszeń (Report)
+        // Relacje Reports
         modelBuilder.Entity<Report>()
             .HasOne(r => r.Reporter)
             .WithMany()
@@ -36,5 +37,12 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(r => r.AssigneeId)
             .OnDelete(DeleteBehavior.SetNull);
+
+        // Relacje Comments - Usunięcie Raportu usuwa komentarze
+        modelBuilder.Entity<Comment>()
+            .HasOne(c => c.Report)
+            .WithMany()
+            .HasForeignKey(c => c.ReportId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

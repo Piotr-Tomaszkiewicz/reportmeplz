@@ -142,3 +142,5 @@
 /home/piotr/reportmeplz/backend/MojeApiMariaDB/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
 /home/piotr/reportmeplz/backend/MojeApiMariaDB/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
 /home/piotr/reportmeplz/backend/MojeApiMariaDB/bin/Debug/net9.0/MojeApiMariaDB.staticwebassets.runtime.json
+/home/piotr/reportmeplz/backend/MojeApiMariaDB/bin/Debug/net9.0/package-lock.json
+/home/piotr/reportmeplz/backend/MojeApiMariaDB/bin/Debug/net9.0/package.json

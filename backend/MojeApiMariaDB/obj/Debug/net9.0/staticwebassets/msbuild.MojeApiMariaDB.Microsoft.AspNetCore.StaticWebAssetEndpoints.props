@@ -1,5 +1,29 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/MojeApiMariaDB/uploads/12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"125508"},{"Name":"Content-Type","Value":"image/gif"},{"Name":"ETag","Value":"\u00223xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 Jan 2026 19:31:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MojeApiMariaDB/uploads/12381533-50f1-46fc-9ce5-f3b6179ea30a.vkrhtxdxok.GIF">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vkrhtxdxok"},{"Name":"integrity","Value":"sha256-3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0="},{"Name":"label","Value":"_content/MojeApiMariaDB/uploads/12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"125508"},{"Name":"Content-Type","Value":"image/gif"},{"Name":"ETag","Value":"\u00223xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 Jan 2026 19:31:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MojeApiMariaDB/uploads/15f51f94-43de-41f2-8920-17aa5bf13f8e.f5v6okbuou.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f5v6okbuou"},{"Name":"integrity","Value":"sha256-zQTe2wnn9J/WEjZjrUe/g2vtktXGhw4o6UUy05ckPvA="},{"Name":"label","Value":"_content/MojeApiMariaDB/uploads/15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"130522"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022zQTe2wnn9J/WEjZjrUe/g2vtktXGhw4o6UUy05ckPvA=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 Jan 2026 20:07:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MojeApiMariaDB/uploads/15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-zQTe2wnn9J/WEjZjrUe/g2vtktXGhw4o6UUy05ckPvA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"130522"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022zQTe2wnn9J/WEjZjrUe/g2vtktXGhw4o6UUy05ckPvA=\u0022"},{"Name":"Last-Modified","Value":"Thu, 22 Jan 2026 20:07:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MojeApiMariaDB/uploads/17dc0f34-ec46-4470-8629-bde931062b42.fooyjdio81.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\17dc0f34-ec46-4470-8629-bde931062b42.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

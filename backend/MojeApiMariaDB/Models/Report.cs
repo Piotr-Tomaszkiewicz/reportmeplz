@@ -17,9 +17,14 @@ public class Report
     
     public string Status { get; set; } = "Zarejestrowany";
 
+    // NOWE POLA
+    public DateTime DateReported { get; set; } // Data zgłoszenia (obowiązkowa)
+    public DateTime? DateResolved { get; set; } // Data realizacji (opcjonalna)
+
+    // Zgłaszający i Wykonujący
     public int ReporterId { get; set; }
     public int? AssigneeId { get; set; }
-    
+
     public string? FileId { get; set; }     
     public string? FileName { get; set; }   
 

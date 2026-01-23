@@ -1,5 +1,41 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MojeApiMariaDB</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MojeApiMariaDB</BasePath>
+      <RelativePath>uploads/12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vkrhtxdxok</Fingerprint>
+      <Integrity>3xal8kAx8J4asEqcx0UdAjtoMRmxEUDq5H5J7Lluql0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\12381533-50f1-46fc-9ce5-f3b6179ea30a.GIF'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MojeApiMariaDB</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MojeApiMariaDB</BasePath>
+      <RelativePath>uploads/15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>f5v6okbuou</Fingerprint>
+      <Integrity>zQTe2wnn9J/WEjZjrUe/g2vtktXGhw4o6UUy05ckPvA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\15f51f94-43de-41f2-8920-17aa5bf13f8e.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\17dc0f34-ec46-4470-8629-bde931062b42.png'))">
       <SourceType>Package</SourceType>
       <SourceId>MojeApiMariaDB</SourceId>
