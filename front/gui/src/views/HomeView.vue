@@ -4,69 +4,56 @@
     <header class="welcome-section">
       <div class="welcome-text">
         <h1>Witaj w <span class="brand-name">REPORTMEPLZ</span></h1>
-        <p>Twój centralny system zgłaszania i śledzenia problemów technicznych. Szybko, sprawnie i pod kontrolą.</p>
+        <p>Centralny system zarządzania incydentami i usterkami. Zgłoś problem w kilka sekund, a my zajmiemy się jego śledzeniem i rozwiązaniem.</p>
         
         <div class="welcome-actions">
-          <!-- Emitujemy zdarzenie do App.vue -->
+          <!-- Emitujemy zdarzenie do App.vue, by otworzyć modal ZGŁOSZENIA -->
           <button @click="$emit('open-report')" class="btn-primary-large">
-            ➕ Nowe zgłoszenie
+            ➕ Utwórz nowe zgłoszenie
           </button>
           <router-link to="/moje-zgloszenia" class="btn-secondary-large">
-            📋 Moja historia
+            📋 Zobacz Moje zgłoszenia
           </router-link>
-        </div>
-      </div>
-
-      <div class="welcome-stats">
-        <!-- Karta 1 -->
-        <div class="stat-mini-card">
-          <span class="stat-icon">🔥</span>
-          <div class="stat-info">
-            <span class="stat-label">Aktywne błędy</span>
-            <span class="stat-value">12</span>
-          </div>
-        </div>
-        <!-- Karta 2 -->
-        <div class="stat-mini-card">
-          <span class="stat-icon">✅</span>
-          <div class="stat-info">
-            <span class="stat-label">Rozwiązane</span>
-            <span class="stat-value">148</span>
-          </div>
         </div>
       </div>
     </header>
 
-    <!-- Sekcja informacyjna -->
-    <section class="info-grid">
-      <div class="info-card">
-        <div class="info-icon">🚀</div>
-        <h3>Szybkość reakcji</h3>
-        <p>Nasze API na localhost:5016 przetwarza Twoje zgłoszenia w ułamku sekundy, powiadamiając odpowiednie osoby.</p>
+    <!-- Sekcja zalet i funkcji systemu (Z trzema kartami) -->
+    <section class="features-grid">
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Pełna transparentność</h3>
+        <p>Śledź status swoich zgłoszeń w czasie rzeczywistym. Widzisz, kto jest przypisany do zadania i na jakim jest ono etapie (Zarejestrowany, W realizacji, Rozwiązany).</p>
       </div>
       
-      <div class="info-card">
-        <div class="info-icon">🔒</div>
-        <h3>Bezpieczeństwo JWT</h3>
-        <p>Twoje dane są chronione zaawansowanym systemem tokenów JWT, zapewniając dostęp tylko uprawnionym użytkownikom.</p>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Bezpieczeństwo danych (JWT)</h3>
+        <p>Korzystamy z nowoczesnej autoryzacji JWT, zapewniając, że Twoje dane i zgłoszenia są widoczne tylko dla uprawnionych osób w firmie.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <h3>Obsługa załączników</h3>
+        <p>Dołącz zdjęcia, zrzuty ekranu lub dokumenty do swojego zgłoszenia, by maksymalnie ułatwić zrozumienie i przyspieszyć naprawę.</p>
       </div>
 
-      <div class="info-card">
-        <div class="info-icon">📍</div>
-        <h3>Precyzyjna lokalizacja</h3>
-        <p>Dzięki integracji z listą lokalizacji, wiemy dokładnie, gdzie wystąpił problem, co przyspiesza naprawę.</p>
-      </div>
     </section>
 
-    <!-- Stopka -->
+    <!-- Stopka informacyjna (ZMIENIONA) -->
     <footer class="home-footer">
-      <p>Status systemu: <span class="status-online">Online (Port: 5016)</span></p>
+      <p>Aplikacja stworzona przez <strong>Piotra Tomaszkiewicza</strong> oraz <strong>Adama Pietrasa</strong>.</p>
     </footer>
   </div>
 </template>
 
 <script setup>
-defineEmits(['open-report'])
+import { useRouter } from 'vue-router';
+// Emitem otwiera się modal zgłaszania (zdefiniowany w App.vue)
+defineEmits(['open-report']) 
+
+const router = useRouter(); 
 </script>
 
 <style scoped>
@@ -81,74 +68,135 @@ defineEmits(['open-report'])
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Header Section */
 .welcome-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 3rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: white;
+    padding: 4rem 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+.welcome-text {
+    max-width: 700px;
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.brand-name {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.welcome-text p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1.6;
   margin-bottom: 2rem;
-  border: 1px solid #e5e7eb;
 }
 
-.welcome-text h1 { font-size: 2.5rem; color: #111827; margin-bottom: 1rem; }
-.brand-name { color: #2563eb; font-weight: 800; }
-.welcome-text p { color: #6b7280; font-size: 1.1rem; max-width: 500px; line-height: 1.6; margin-bottom: 2rem; }
-.welcome-actions { display: flex; gap: 1rem; }
-
-.welcome-stats { display: flex; flex-direction: column; gap: 1rem; }
-.stat-mini-card {
-  background: #f9fafb;
-  padding: 1rem 1.5rem;
-  border-radius: 1rem;
+.welcome-actions {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  border: 1px solid #f3f4f6;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
-.stat-icon { font-size: 1.5rem; }
-.stat-label { display: block; font-size: 0.8rem; color: #6b7280; font-weight: 600; }
-.stat-value { font-size: 1.25rem; font-weight: 700; color: #1f2937; }
-
+/* Buttons */
 .btn-primary-large {
-  background: #2563eb; color: white; border: none;
-  padding: 1rem 2rem; border-radius: 0.75rem;
-  font-weight: 600; cursor: pointer; transition: 0.2s;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
+
 .btn-primary-large:hover { background: #1d4ed8; transform: translateY(-2px); }
 
 .btn-secondary-large {
-  background: #f3f4f6; color: #374151;
-  padding: 1rem 2rem; border-radius: 0.75rem;
-  text-decoration: none; font-weight: 600; transition: 0.2s;
+  background: #f3f4f6;
+  color: #374151;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+  display: inline-block;
 }
+
 .btn-secondary-large:hover { background: #e5e7eb; }
 
-.info-grid {
+
+/* FEATURES GRID */
+.features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
-.info-card {
-  background: white; padding: 2rem; border-radius: 1.25rem;
-  border: 1px solid #e5e7eb; transition: 0.3s;
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
-.info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-.info-icon { font-size: 2rem; margin-bottom: 1rem; }
-.info-card h3 { color: #111827; margin-bottom: 0.75rem; }
-.info-card p { color: #6b7280; font-size: 0.95rem; line-height: 1.5; }
 
-.home-footer { text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.85rem; }
-.status-online { color: #10b981; font-weight: 700; }
+.feature-card:hover { border-color: #2563eb; }
 
-@media (max-width: 768px) {
-  .welcome-section { flex-direction: column; text-align: center; padding: 2rem; }
-  .welcome-text p { margin: 0 auto 2rem; }
-  .welcome-actions { justify-content: center; flex-direction: column; }
+.feature-icon { 
+    font-size: 1.8rem; 
+    margin-bottom: 1rem; 
+    color: #2563eb;
+}
+
+.feature-card h3 { 
+    color: #111827; 
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.feature-card p { 
+    color: #6b7280; 
+    font-size: 0.95rem; 
+    line-height: 1.5; 
+}
+
+/* Footer */
+.home-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Nowa stylizacja imion */
+.home-footer strong {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+
+/* Responsywność */
+@media (max-width: 640px) {
+  .welcome-section { padding: 3rem 1rem; }
+  .welcome-actions { flex-direction: column; gap: 1rem; }
+  .btn-primary-large, .btn-secondary-large { width: 100%; text-align: center; }
 }
 </style>

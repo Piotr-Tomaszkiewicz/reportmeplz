@@ -1,5 +1,3 @@
-// Otwórz: src/router/index.js
-
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
@@ -21,14 +19,37 @@ const router = createRouter({
       path: '/wszystkie-zgloszenia',
       name: 'all-reports',
       component: () => import('../views/AllReportsView.vue'),
-      meta: { 
-        requiresAuth: true,
-        // Tylko te role mają dostęp
-        requiredRoles: ['admin', 'manager'] 
-      }
+      meta: { requiresAuth: true, requiredRoles: ['admin', 'manager'] }
     },
+    
+    // === PANEL ADMINA ===
     {
-      path: '/zgloszenie/:id', // Nowa ścieżka z dynamicznym ID
+      path: '/admin',
+      name: 'admin-panel',
+      component: () => import('../views/AdminPanelView.vue'),
+      meta: { requiresAuth: true, requiredRoles: ['admin'] },
+      children: [
+        {
+          path: 'locations',
+          name: 'admin-locations',
+          component: () => import('../views/LocationsView.vue'), // Tutaj poprawiona ścieżka
+          meta: { requiredRoles: ['admin'] }
+        },
+        {
+          path: 'users',
+          name: 'admin-users',
+          component: () => import('../views/UsersView.vue'), // Tutaj poprawiona ścieżka
+          meta: { requiredRoles: ['admin'] }
+        },
+        {
+          path: '',
+          redirect: { name: 'admin-locations' }
+        }
+      ]
+    },
+    
+    {
+      path: '/zgloszenie/:id', 
       name: 'report-details',
       component: () => import('../views/ReportDetailsView.vue'),
       meta: { requiresAuth: true }
@@ -40,10 +61,10 @@ const router = createRouter({
   ]
 })
 
-// NAVIGATION GUARD - Strażnik dostępu
+// NAVIGATION GUARD
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token')
-  const userRole = (localStorage.getItem('role') || 'guest').toLowerCase() // Domyślna rola to guest
+  const userRole = (localStorage.getItem('role') || 'guest').toLowerCase()
 
   if (to.meta.requiresAuth && !token) {
     alert('Musisz być zalogowany, aby uzyskać dostęp.')
@@ -51,13 +72,10 @@ router.beforeEach((to, from, next) => {
     return
   }
 
-  // Sprawdzanie Ról
   if (to.meta.requiredRoles) {
     const isAuthorized = to.meta.requiredRoles.includes(userRole)
-    
-    // Jeśli rola użytkownika NIE jest dozwolona:
     if (!isAuthorized) {
-      alert('Brak uprawnień. Tylko administratorzy i managerowie mają dostęp do wszystkich zgłoszeń.')
+      alert('Brak uprawnień. Nie masz dostępu do tej sekcji.')
       next('/')
       return
     }

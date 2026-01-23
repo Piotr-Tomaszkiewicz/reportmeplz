@@ -10,7 +10,6 @@
           <span class="icon">📋</span> Moje zgłoszenia
         </router-link>
         
-        <!-- LINK WIDOCZNY TYLKO DLA ADMIN/MANAGERA -->
         <router-link 
           v-if="canViewAllReports" 
           to="/wszystkie-zgloszenia" 
@@ -18,6 +17,19 @@
         >
           <span class="icon">🌍</span> Wszystkie zgłoszenia
         </router-link>
+
+        <!-- PANEL ADMINA - Tylko dla Admina -->
+        <router-link 
+          v-if="isAdmin" 
+          to="/admin" 
+          class="nav-item admin-link"
+        >
+          <span class="icon">🛠</span> Panel Admina
+        </router-link>
+        
+        <button type="button" @click="$emit('open-locations')" class="nav-item location-link">
+          <span class="icon">📍</span> Lokalizacje
+        </button>
         
         <button type="button" @click="$emit('open-report')" class="nav-item btn-report">
           <span class="icon">➕</span> Zgłoś
@@ -26,7 +38,6 @@
     </div>
 
     <div class="sidebar-bottom">
-      <!-- Używamy click.prevent, by zatrzymać propagację, jeśli jest to button/div -->
       <div v-if="isLoggedIn" class="user-control clickable" @click="$emit('open-profile', currentUserId)">
         <div class="user-badge">👤 {{ login }} ({{ userRole }})</div>
         <button @click.stop="handleLogout" class="nav-item logout-link">
@@ -43,12 +54,10 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { useAuthStore } from '../stores/authStore' // Importujemy store
+import { useAuthStore } from '../stores/authStore'
 
 const authStore = useAuthStore()
-
-// Dodajemy nowy emit 'open-profile'
-defineEmits(['open-report', 'open-login', 'open-profile'])
+defineEmits(['open-report', 'open-login', 'open-profile', 'open-locations'])
 
 const isLoggedIn = ref(false)
 const login = ref('')
@@ -58,21 +67,12 @@ onMounted(() => {
   const token = localStorage.getItem('token')
   if (token) {
     isLoggedIn.value = true
-    // Login i rola mogą być pobrane z LocalStorage lub Pinia
     login.value = localStorage.getItem('userLogin') || 'Użytkownik'
     userRole.value = (localStorage.getItem('role') || 'user').toLowerCase()
   }
 })
 
-// KLUCZOWA ZMIANA: Pobieramy ID z Pinia, gdzie jest ono ładowane przez fetchUserProfile
-const currentUserId = computed(() => {
-    // Zakładamy, że ID jest zapisane w LocalStorage pod kluczem 'userId'
-    // A Pinia je odświeża.
-    return localStorage.getItem('userId'); 
-    
-    // UWAGA: Jeśli API w /users/me nie zwraca 'userId', musisz je zapisać 
-    // z tokena JWT przy logowaniu LUB zmusić API do zwrócenia go.
-});
+const currentUserId = computed(() => localStorage.getItem('userId'))
 
 const canViewAllReports = computed(() => {
   if (!isLoggedIn.value) return false
@@ -80,8 +80,12 @@ const canViewAllReports = computed(() => {
   return role === 'admin' || role === 'manager'
 })
 
+const isAdmin = computed(() => {
+  return userRole.value.toLowerCase() === 'admin'
+})
+
 const handleLogout = () => {
-  authStore.logout() // Używamy metody wylogowania z Pinia
+  authStore.logout()
 }
 </script>
 
@@ -91,23 +95,15 @@ const handleLogout = () => {
 .nav-links { display: flex; flex-direction: column; gap: 4px; }
 .nav-item { width: 100%; border: none; background: none; font-family: inherit; display: flex; align-items: center; padding: 10px 12px; color: #4b5563; text-decoration: none; border-radius: 8px; font-weight: 500; cursor: pointer; transition: 0.2s; font-size: 1rem; }
 .nav-item:hover { background-color: #f3f4f6; color: #2563eb; }
-.router-link-active { background-color: #eff6ff; color: #2563eb; }
+.router-link-active { background-color: #eff6ff !important; color: #2563eb !important; font-weight: 700; }
 .btn-report { background-color: #2563eb !important; color: white !important; margin-top: 8px; font-weight: 600; }
+.admin-link { color: #7c3aed; margin-top: 10px; border-top: 1px solid #f3f4f6; padding-top: 15px; }
+.admin-link:hover { color: #6d28d9; background-color: #f5f3ff; }
 .sidebar-bottom { border-top: 1px solid #e5e7eb; padding-top: 16px; }
-.user-control { display: flex; flex-direction: column; gap: 8px; padding: 0 12px; } 
-.user-control.clickable { 
-    cursor: pointer;
-    background-color: #f9fafb;
-    border-radius: 6px;
-    padding: 10px;
-    transition: background-color 0.1s;
-}
-.user-control.clickable:hover {
-    background-color: #f3f4f6;
-}
-.user-badge { font-size: 0.95rem; font-weight: 700; color: #1f2937; margin-bottom: 5px; }
-.logout-link { color: #ef4444; padding: 0; font-size: 0.9rem; justify-content: flex-start; }
-.logout-link:hover { background: none; text-decoration: underline; }
-.login-link { color: #6b7280; }
+.user-control.clickable { cursor: pointer; background-color: #f9fafb; border-radius: 6px; padding: 10px; transition: 0.1s; }
+.user-control.clickable:hover { background-color: #f3f4f6; }
+.user-badge { font-size: 0.9rem; font-weight: 700; color: #1f2937; margin-bottom: 5px; }
+.logout-link { color: #ef4444; padding: 0; font-size: 0.85rem; }
+.logout-link:hover { text-decoration: underline; background: none; }
 .icon { margin-right: 12px; }
 </style>

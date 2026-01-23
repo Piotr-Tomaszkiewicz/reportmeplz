@@ -4,16 +4,16 @@ import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import ReportModal from './components/ReportModal.vue'
 import AuthModal from './components/AuthModal.vue'
-import UserInfoModal from './components/UserInfoModal.vue' // NOWY IMPORT
+import UserInfoModal from './components/UserInfoModal.vue' 
+import LocationModal from './components/LocationModal.vue' // NOWY IMPORT
 import { useAuthStore } from './stores/authStore' 
 
 const authStore = useAuthStore()
 
-// null | 'report' | 'login' | 'user-profile'
+// null | 'report' | 'login' | 'user-profile' | 'locations'
 const activeModal = ref(null)
-const profileModalUserId = ref(null) // ID użytkownika do wyświetlenia w modal
+const profileModalUserId = ref(null) 
 
-// Używamy Pinia do załadowania profilu użytkownika na starcie
 onMounted(() => {
   authStore.fetchUserProfile() 
 })
@@ -27,10 +27,7 @@ const handleOpenReport = () => {
   }
 }
 
-// NOWA FUNKCJA: Otwieranie Modala Profilu
 const handleOpenProfile = (userId) => {
-    // Ponieważ użytkownik klika na własny profil (jest zalogowany),
-    // używamy jego ID, które jest w Pinia, lub fallbacku.
     const id = userId || authStore.userProfile?.id; 
     
     if (id) {
@@ -41,6 +38,17 @@ const handleOpenProfile = (userId) => {
     }
 }
 
+// NOWA FUNKCJA: Otwieranie Modala Lokalizacji
+const handleOpenLocations = () => {
+    if (authStore.isLoggedIn) {
+        activeModal.value = 'locations';
+    } else {
+        alert("Musisz być zalogowany, aby zobaczyć listę lokalizacji.");
+        activeModal.value = 'login';
+    }
+}
+
+
 const closeModal = () => {
   activeModal.value = null
   profileModalUserId.value = null;
@@ -49,14 +57,13 @@ const closeModal = () => {
 
 <template>
   <div class="app-container">
-    <!-- Navbar nasłuchuje zdarzeń otwarcia modala -->
     <Navbar 
       @open-report="handleOpenReport" 
       @open-login="activeModal = 'login'" 
       @open-profile="handleOpenProfile"
+      @open-locations="handleOpenLocations"
     />
     
-    <!-- MIEJSCE NA TREŚĆ STRONY -->
     <main class="main-content">
       <RouterView @open-report="handleOpenReport" />
     </main>
@@ -79,14 +86,18 @@ const closeModal = () => {
         :user-id="profileModalUserId"
         @close="closeModal"
     />
+
+    <!-- Modal Lokalizacji -->
+    <LocationModal
+        v-if="activeModal === 'locations'"
+        @close="closeModal"
+    />
   </div>
 </template>
 
 <style>
 /* Reset i style ogólne */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* TWARDY RESET */
 html, body {
   margin: 0; padding: 0;
   width: 100%; height: 100%;
