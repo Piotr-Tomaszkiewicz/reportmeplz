@@ -28,6 +28,12 @@ const router = createRouter({
       }
     },
     {
+      path: '/zgloszenie/:id', // Nowa ścieżka z dynamicznym ID
+      name: 'report-details',
+      component: () => import('../views/ReportDetailsView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/'
     }

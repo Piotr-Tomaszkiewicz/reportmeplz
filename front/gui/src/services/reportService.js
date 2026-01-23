@@ -9,6 +9,10 @@ export const reportService = {
     return api.get('/reports/my');
   },
 
+  getReportById(id) {
+    return api.get(`/reports/${id}`); 
+  },
+
   createReport(reportData) {
     const formData = new FormData();
     formData.append('title', reportData.title);
@@ -20,13 +24,22 @@ export const reportService = {
     }
 
     return api.post('/reports', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+      headers: { 'Content-Type': 'multipart/form-data' }
     });
   },
 
-  // ZMIENIONA WERSJA: Akceptuje ID i oczekiwaną nazwę pliku
+  cancelReport(id) {
+      return api.put(`/reports/${id}/cancel`); 
+  },
+
+  assignReport(id, assigneeLogin) {
+      return api.put(`/reports/${id}/assign`, { assigneeLogin }); 
+  },
+  
+  resolveReport(id) {
+      return api.put(`/reports/${id}/resolve`); 
+  },
+
   async downloadFile(id, expectedFileName) { 
     try {
       const response = await api.get(`/reports/${id}/download-file`, {
@@ -39,9 +52,7 @@ export const reportService = {
       
       const contentDisposition = response.headers['content-disposition'];
       let fileNameToSave = expectedFileName || `zalacznik-zgloszenia-${id}.bin`; 
-      // ^ Domyślnie używamy nazwy z Vue, jeśli jej nie ma, używamy bezpiecznego domyślnego pliku
 
-      // Próbujemy nadpisać nazwę z nagłówka Content-Disposition (jeśli serwer go poprawnie ustawił)
       if (contentDisposition) {
         const match = contentDisposition.match(/filename\*?=['"]?(?:UTF-8'')?([^;]+)/i);
         if (match && match[1]) {
@@ -49,12 +60,11 @@ export const reportService = {
         }
       }
       
-      // Wymuszenie pobrania
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       
       link.href = url;
-      link.setAttribute('download', fileNameToSave); // Używamy poprawnie ustalonej nazwy
+      link.setAttribute('download', fileNameToSave); 
       
       document.body.appendChild(link);
       link.click();

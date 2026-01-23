@@ -97,8 +97,10 @@
 import { ref, reactive, onMounted } from 'vue'
 import { authService } from '../services/authService'
 import { locationService } from '../services/locationService'
+import { useAuthStore } from '../stores/authStore' // Używamy store, aby odświeżyć stan
 
 const emit = defineEmits(['close'])
+const authStore = useAuthStore()
 
 const isLoginMode = ref(true)
 const isSubmitting = ref(false)
@@ -106,7 +108,7 @@ const isLoadingLocations = ref(false)
 const locations = ref([])
 
 const form = reactive({
-  login: '', // KLUCZ ZGODNY Z API
+  login: '', 
   email: '',
   locationId: '',
   password: '',
@@ -128,7 +130,6 @@ onMounted(async () => {
 
 const toggleMode = () => {
   isLoginMode.value = !isLoginMode.value
-  // Reset pól przy przełączaniu
   form.password = ''
   form.confirmPassword = ''
 }
@@ -143,31 +144,38 @@ const handleSubmit = async () => {
     isSubmitting.value = true
     
     if (isLoginMode.value) {
-      // LOGOWANIE: Wymaga login i password
+      // LOGOWANIE
       const res = await authService.login({ 
         login: form.login, 
         password: form.password 
       })
       
-      // Zapisujemy token i login użytkownika do LocalStorage
+      // ZAPIS DANYCH W LOCALSTORAGE
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('userLogin', form.login)
       
-      // Jeżeli API zwraca rolę, zapisz ją:
+      // ZAKŁADAMY, ŻE API ZWRACA role i ID użytkownika (userId)
       if (res.data.role) {
          localStorage.setItem('role', res.data.role);
       }
+      if (res.data.userId) { // <<< KLUCZOWY ZAPIS ID
+         localStorage.setItem('userId', res.data.userId);
+      }
 
       alert('Zalogowano pomyślnie!')
-      window.location.reload()
+      
+      // Odświeżenie store i całej aplikacji
+      authStore.fetchUserProfile();
+      window.location.reload(); 
+
     } else {
-      // REJESTRACJA: Wymaga login, email, password, locationId
+      // REJESTRACJA
       await authService.register({
         login: form.login,
         email: form.email,
         password: form.password,
         locationId: form.locationId,
-        roleId: 1 // Wartość domyślna dla użytkowników (zgodnie z Twoim przykładem API)
+        roleId: 1 
       })
       alert('Konto zostało utworzone! Możesz się teraz zalogować.')
       isLoginMode.value = true
